@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-3.6.3.min.js"></script>
+    <link rel="stylesheet" href="parte2.css">
+</head>
+<style>
+  body {
+    background-color: pink;
+    color: white;
+    padding: 50px;
+  }
+  
+  p {
+    font-size: 30px;
+    font-weight: bold;
+  }
+  
+  #change, #move button {
+    background-color: red;
+    color: white;
+    width: 100px;
+    height: 80px;
+    position: absolute;
+  }
+  
+  #move {
+    padding: 30px;
+    width: 100px;
+    height: 80px;
+    position: absolute;
+  }
+  
+  .hidden {
+    display:none;
+  }
+  
+  #move {
+    left: 200px;
+  }
+  
+  #change:hover {
+    cursor:pointer;
+  }
+</style>
+<body>
+  <center><p> Quieres salir a comer helado el viernes?? </p></center>
+<center><button id="change"> No </button></center>
+<center> <div class="hidden" id="move">
+    <button id="no"> No
+  </div>
+  </button>  </center>
+
+  <script>
+    var c=0;
+$("#change").click(function() {
+  if (c == 1) {
+  acerto();
+}
+  $("#change").html("<a onclick='acerto()'>Si</a>");
+  $("#move").show();
+  c=1;
+});
+
+$("#move").hover(function() {
+  change();
+});
+
+$("#no").hover(function() {
+  change();
+});
+
+function acerto() {
+  alert("Te Amo!");
+}
+
+function change()
+{
+    var i = Math.floor(Math.random()*300)+1;
+    var j = Math.floor(Math.random()*400)+1;
+    $("#move").css({top: j+'px',left: i+'px'});
+}
+  </script>
+</body>
+</html>
